@@ -1,16 +1,23 @@
-# React + Vite
+# 📱 SGC - Sistema de Gestão de Celulares
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o **SGC-Frontend**, um sistema administrativo moderno desenvolvido para facilitar o gerenciamento de inventário, vendas e relatórios de uma loja de celulares.
 
-Currently, two official plugins are available:
+O projeto foi construído com foco em uma interface limpa, intuitiva e totalmente responsiva, permitindo que o administrador tenha uma visão clara do dashboard em qualquer dispositivo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias Utilizadas
 
-## React Compiler
+Este projeto foi desenvolvido utilizando as ferramentas mais modernas do ecossistema Web:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React.js**: Biblioteca principal para a criação da interface baseada em componentes.
+- **Tailwind CSS**: Framework CSS para um design rápido, moderno e altamente customizável.
+- **Lucide React**: Biblioteca de ícones leves e elegantes.
+- **Vite**: Ferramenta de build extremamente rápida para um desenvolvimento ágil.
 
-## Expanding the ESLint configuration
+## ✨ Funcionalidades (Em desenvolvimento)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [x] **Dashboard Dinâmico**: Resumo de vendas, faturamento e lucros.
+- [x] **Sidebar Interativa**: Menu que expande e retrai ao passar o mouse para melhor aproveitamento de espaço.
+- [ ] **Gestão de Estoque**: Cadastro e monitoramento de novos e seminovos.
+- [ ] **Relatórios**: Visualização de dados de vendas por período.
+
+Desenvolvido por Jean Menino 🚀
