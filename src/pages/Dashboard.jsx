@@ -1,53 +1,37 @@
 import CardResumo from "../components/CardResumo";
 import { useState } from "react";
-import { LayoutDashboard, ShoppingCart, Users, Package, ShieldCheck, FileText, Smartphone, DollarSign, TrendingUp } from 'lucide-react';
+import { LayoutDashboard, ShoppingCart, Users, Package, ShieldCheck, FileText, Smartphone, DollarSign, TrendingUp, TextIcon } from 'lucide-react';
 
 const Dashboard = () => {
+
+    const [expandida, setExpandida] = useState(false);
+
     return (
         <div className="flex h-screen bg-gray-100">
 
             {/*SIDEBAR*/}
-            <aside className="w-64 bg-linear-to-b from-purple-600 to-indigo-800">
-                <div className="border-b border-white/20 py-6 mb-6">
-                    <h1 className="text-xl font-bold flex items-center gap-2 justify-center text-gray-200"><Smartphone size={20}/> Antony Cell</h1>
+            <aside 
+                className={`${expandida ? 'w-64' : 'w-20'}
+                    bg-linear-to-b from-purple-600 to-indigo-800
+                    text-white p-4 transition-all duration-300 ease-in-out flex flex-col`}
+                onMouseEnter={() => setExpandida(true)}
+                onMouseLeave={() => setExpandida(false)}
+            >
+                <div className="border-b border-white/20 py-2 mb-6 flex justify-center">
+                    <h1 className="text-xl font-bold flex items-center gap-2">
+                        <Smartphone size={24} />
+                        {expandida && <span>Antony Cell</span>}
+                    </h1>
                 </div>
+
+                {/* MENU */}
                 <nav className="space-y-4">
-
-                    {/* Dashboard */}
-                    <div className="flex items-center gap-3 p-2 hover:bg-white/10 rounded-lg cursor-pointer text-gray-200">
-                        <LayoutDashboard size={20}/>
-                        <span>Dashboard</span>
-                    </div>
-
-                    {/* Vendas */}
-                    <div className="flex items-center gap-3 p-2 hover:bg-white/10 rounded-lg cursor-pointer text-gray-200">
-                        <ShoppingCart size={20} />
-                        <span>Vendas</span>
-                    </div>
-
-                    {/* Clientes */}
-                    <div className="flex items-center gap-3 p-2 hover:bg-white/10 rounded-lg cursor-pointer text-gray-200">
-                        <Users size={20}/>
-                        <span>Clientes</span>
-                    </div>
-
-                    {/* Estoque */}
-                    <div className="flex items-center gap-3 p-2 hover:bg-white/10 rounded-lg cursor-pointer text-gray-200">
-                        <Package size={20}/>
-                        <span>Estoque</span>
-                    </div>
-
-                    {/* Garantias */}
-                    <div className="flex items-center gap-3 p-2 hover:bg-white/10 rounded-lg cursor-pointer text-gray-200">
-                        <ShieldCheck size={20}/>
-                        <span>Garantias</span>
-                    </div>
-
-                    {/* Relatórios */}
-                    <div className="flex items-center gap-3 p-2 hover:bg-white/10 rounded-lg cursor-pointer text-gray-200">
-                        <FileText size={20}/>
-                        <span>Relatórios</span>
-                    </div>
+                    <menuitem icone={<LayoutDashboard />} texto="Dashboard" aberta={expandida} ativo/>
+                    <MenuItem icone={<ShoppingCart />} texto="Vendas" aberta={expandida} />
+                    <MenuItem icone={<Users />} texto="Clientes" aberta={expandida} />
+                    <MenuItem icone={<Package />} texto="Estoque" aberta={expandida} />
+                    <MenuItem icone={<ShieldCheck />} texto="Garantias" aberta={expandida} />
+                    <MenuItem icone={<FileText />} texto="Relatórios" aberta={expandida} />
                 </nav>
             </aside>
 
@@ -68,4 +52,12 @@ const Dashboard = () => {
     );
 };
 
+    const MenuItem = ({ icone, texto, aberta, ativo = false }) => (
+        <div className={`flex items-center ${aberta ? 'justify-start gap-3' : 'justify-center'} 
+            p-2 rounded-lg cursor-pointer transition-colors
+            ${ativo ? 'bg-white/20' : 'hover:bg-white/10 text-gray-200'}`}>
+            {icone}
+            {aberta && <span className="whitespace-nowrap">{texto}</span>}
+        </div>
+    );
 export default Dashboard;
